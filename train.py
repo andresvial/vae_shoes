@@ -91,7 +91,8 @@ if __name__ == '__main__' :
     #initial_learning_rate = configuration.get_learning_rate()    
     #opt = tf.keras.optimizers.SGD(learning_rate = initial_learning_rate, momentum = 0.9, nesterov = True)
     model.compile(optimizer=opt,
-                  loss= losses.vae_loss)
+                  loss= losses.vae_loss,
+                  metrics=['accuracy'])
     #training
     if pargs.mode == 'train' :                             
         history = model.fit(tr_dataset, 
